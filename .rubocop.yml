@@ -1,0 +1,242 @@
+# https://github.com/bbatsov/rubocop/blob/master/config/default.yml
+
+require: rubocop-rails
+
+AllCops:
+  TargetRubyVersion: 2.7.1
+  Exclude:
+    - db/**/*
+    - vendor/**/*
+    - bin/**/*
+    - config.ru
+    - config/boot.rb
+    - config/environment.rb
+    - config/application.rb
+    - config/environments/**
+    - node_modules/**/*
+    - Rakefile
+    - Capfile
+    - features/*/*
+    - tmp/**/*
+    - tools/*
+  CacheRootDirectory: tmp/
+  NewCops: enable
+
+Metrics/ClassLength:
+  Max: 250
+
+Style/Documentation:
+  Enabled: false
+
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
+Style/Encoding:
+  Enabled: false
+
+Layout/EndAlignment:
+  EnforcedStyleAlignWith: variable
+
+Layout/FirstHashElementIndentation:
+  EnforcedStyle: consistent
+
+Layout/LineLength:
+  Enabled: false
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Metrics/AbcSize:
+  Max: 26
+
+Metrics/BlockLength:
+  Exclude:
+    - 'config/initializers/*.rb'
+    - 'config/routes.rb'
+    - 'spec/**/*.rb'
+
+Metrics/MethodLength:
+  CountComments: false  # count full line comments?
+  Max: 50
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: nested
+
+Layout/DotPosition:
+  EnforcedStyle: trailing
+
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: true
+
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+
+Lint/BinaryOperatorWithIdenticalOperands:
+  Enabled: false
+
+Lint/DeprecatedOpenSSLConstant:
+  Enabled: false
+
+Lint/DuplicateElsifCondition:
+  Enabled: false
+
+Lint/DuplicateRescueException:
+  Enabled: false
+
+Lint/EmptyConditionalBody:
+  Enabled: false
+
+Lint/FloatComparison:
+  Enabled: false
+
+Lint/MissingSuper:
+  Enabled: false
+
+Lint/MixedRegexpCaptureTypes:
+  Enabled: false
+
+Lint/OutOfRangeRegexpRef:
+  Enabled: false
+
+Lint/RaiseException:
+  Enabled: false
+
+Lint/SelfAssignment:
+  Enabled: false
+
+Lint/StructNewOverride:
+  Enabled: false
+
+Lint/TopLevelReturnWithArgument:
+  Enabled: false
+
+Lint/UnreachableLoop:
+  Enabled: false
+
+Rails:
+  Enabled: true
+
+Rails/ActiveRecordCallbacksOrder:
+  Enabled: true
+
+Rails/FindById:
+  Enabled: true
+
+Rails/Inquiry:
+  Enabled: true
+
+Rails/MailerName:
+  Enabled: true
+
+Rails/MatchRoute:
+  Enabled: true
+
+Rails/NegateInclude:
+  Enabled: true
+
+Rails/Pluck:
+  Enabled: true
+
+Rails/PluckInWhere:
+  Enabled: true
+
+Rails/RenderInline:
+  Enabled: true
+
+Rails/RenderPlainText:
+  Enabled: true
+
+Rails/ShortI18n:
+  Enabled: true
+
+Rails/SkipsModelValidations:
+  ForbiddenMethods:
+    - decrement!
+    - decrement_counter
+    - increment!
+    - increment_counter
+    - toggle!
+    - touch
+    - update_attribute
+    - update_column
+    - update_columns
+    - update_counters
+
+Rails/WhereExists:
+  Enabled: true
+
+Style/AccessorGrouping:
+  Enabled: true
+
+Style/ArrayCoercion:
+  Enabled: true
+
+Style/BisectedAttrAccessor:
+  Enabled: true
+
+Style/CaseLikeIf:
+  Enabled: true
+
+Style/ExplicitBlockArgument:
+  Enabled: true
+
+Style/ExponentialNotation:
+  Enabled: false
+
+Style/GlobalStdStream:
+  Enabled: false
+
+Style/HashAsLastArrayItem:
+  Enabled: false
+
+Style/HashEachMethods:
+  Enabled: false
+
+Style/HashLikeCase:
+  Enabled: false
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
+
+Style/Lambda:
+  EnforcedStyle: literal
+  SupportedStyles:
+    - line_count_dependent
+    - lambda
+    - literal
+
+Style/MixinGrouping:
+  Enabled: false
+
+Style/OptionalBooleanParameter:
+  Enabled: false
+
+Style/RedundantAssignment:
+  Enabled: true
+
+Style/RedundantFetchBlock:
+  Enabled: true
+
+Style/RedundantFileExtensionInRequire:
+  Enabled: true
+
+Style/RedundantRegexpCharacterClass:
+  Enabled: true
+
+Style/RedundantRegexpEscape:
+  Enabled: true
+
+Style/SingleArgumentDig:
+  Enabled: true
+
+Style/SlicingWithRange:
+  Enabled: true
+
+Style/StringConcatenation:
+  Enabled: true
+
+Style/SymbolArray:
+  Enabled: false
