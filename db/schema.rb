@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_22_180606) do
+ActiveRecord::Schema.define(version: 2021_02_22_184648) do
 
   create_table "contacts", force: :cascade do |t|
     t.string "name", null: false
@@ -21,6 +21,16 @@ ActiveRecord::Schema.define(version: 2021_02_22_180606) do
     t.index ["name"], name: "index_contacts_on_name"
   end
 
+  create_table "taggings", force: :cascade do |t|
+    t.integer "contact_id"
+    t.integer "tag_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["contact_id", "tag_id"], name: "index_taggings_on_contact_id_and_tag_id", unique: true
+    t.index ["contact_id"], name: "index_taggings_on_contact_id"
+    t.index ["tag_id"], name: "index_taggings_on_tag_id"
+  end
+
   create_table "tags", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -28,4 +38,6 @@ ActiveRecord::Schema.define(version: 2021_02_22_180606) do
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
+  add_foreign_key "taggings", "contacts"
+  add_foreign_key "taggings", "tags"
 end

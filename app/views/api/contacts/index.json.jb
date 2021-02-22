@@ -1,0 +1,12 @@
+# frozen_string_literal: true
+
+@contacts.map do |contact|
+  {
+    id: contact.id,
+    name: contact.name,
+    email: contact.email,
+    tags: contact.tags.map(&:name).join(', '),
+    created_at: contact.created_at,
+    updated_at: contact.updated_at
+  }
+end

@@ -21,7 +21,7 @@ module Api
     end
 
     test 'should create tag' do
-      assert_difference('Tag.count') do
+      assert_difference('Tag.count', 1) do
         post api_tags_url, params: { tag: { name: 'RealEstate' } }, as: :json
       end
       assert_response :created

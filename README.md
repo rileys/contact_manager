@@ -1,24 +1,26 @@
-# README
+# Mini CRM Sample Project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Prototype an API to manage contacts, tags, and assigning tags to contacts.
 
-Things you may want to cover:
+### System requirements
 
-* Ruby version
+- Ruby 2.7.1
+- SQLite
 
-* System dependencies
+## Setup
 
-* Configuration
+- `bundle install`
+- run `rails db:setup`
+- start rails server (`rails s` locally)
 
-* Database creation
+## API
 
-* Database initialization
+- all endpoints in `api` namespace
+- list, add, update, delete endpoints for Contacts and Tags.
+- `/api/taggings` endpoints for creating and deleting a contact_id and tag_id relation.
+- additional `/api/contacts/tagged_with/:name` endpoint to find all contacts with a given tag.
 
-* How to run the test suite
+## Tests
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Run `rubocop` to Ruby code linter.
+- Run `rails test` to run all tests.

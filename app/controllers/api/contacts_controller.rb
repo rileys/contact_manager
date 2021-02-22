@@ -3,7 +3,13 @@
 module Api
   class ContactsController < ApplicationController
     def index
-      render json: Contact.all
+      @contacts = Contact.all.includes(:tags)
+    end
+
+    # GET /api/contacts/tagged_with/:name
+    def tagged_with
+      @contacts = Contact.includes(:tags).tagged_with(params[:name])
+      render :index
     end
 
     def create

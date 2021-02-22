@@ -32,4 +32,18 @@ class ContactTest < ActiveSupport::TestCase
     contact = build(:contact, email: 'TEST@test.com')
     assert_not contact.valid?
   end
+
+  test 'with_tag returns contacts with tag parameter' do
+    tag1 = create(:tag)
+    tag2 = create(:tag)
+    tag3 = create(:tag)
+
+    andrew = create(:contact, tags: [tag1, tag2])
+    bob = create(:contact, tags: [tag2, tag3])
+    cathy = create(:contact, tags: [tag1, tag3])
+
+    assert_empty [andrew.id, cathy.id].difference(Contact.tagged_with(tag1.name).pluck(:id))
+    assert_empty [andrew.id, bob.id].difference(Contact.tagged_with(tag2.name).pluck(:id))
+    assert_empty [cathy.id, bob.id].difference(Contact.tagged_with(tag3.name).pluck(:id))
+  end
 end

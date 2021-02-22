@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :tag do
-    name { Faker::Job.title.delete(' ') }
+    name { Faker::Job.unique.title.delete(' ') }
   end
 end
